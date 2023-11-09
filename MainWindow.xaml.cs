@@ -24,7 +24,7 @@ namespace SoftAnime
     /// TODO :
     ///  - Email verification
     ///  - User password reset 
-    ///  - to change the user password an Email is sent, decrypt the user data then is encrypted by the new pass then updated to the server
+    ///  - to change the user password an Email is sent.
     ///  
     ///  - improve the UI 
     ///  - custom WPF if possible
@@ -146,7 +146,6 @@ namespace SoftAnime
 
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {
-            /// DONE AND NOT WORKING !!!! 
             if( Connectedtoserver == true )
             {
                 int deleteitem = AnimesListBox.SelectedIndex;
