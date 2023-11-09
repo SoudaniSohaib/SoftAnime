@@ -1,0 +1,117 @@
+﻿<Window x:Class="SoftAnime.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftAnime"
+        mc:Ignorable="d"
+        Title="SignUpWindow" MinHeight="350" MinWidth="460" Height="350" Width="460" WindowStartupLocation="CenterScreen">
+    <Grid Background="#008060">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Name="textBlockHeading" Text="Registration:"  FontSize="17" />
+
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="8" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="1" Name="Username" Text="Username :" VerticalAlignment="Center"  />
+            <TextBlock  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="left" Name="textBlockEmailId" Text="Email :" VerticalAlignment="Center" />
+            <TextBlock  Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="1" HorizontalAlignment="left"  Name="textBlockPassword" Text="Password :" VerticalAlignment="Center" />
+            <TextBlock  Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalAlignment="left"  Name="textBlockConfirmPwd" Text="ConfirmPassword :" VerticalAlignment="Center"  />
+            <TextBox  Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="1" BorderBrush="Black" BorderThickness="1"   Name="UsernameTextbox" VerticalAlignment="Center" TextChanged="UsernameTextbox_TextChanged" />
+            <TextBlock Name="UsernameWarning" Foreground="Red" Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="7" Grid.RowSpan="1" VerticalAlignment="Center"  />
+            <TextBox  Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="5" Grid.RowSpan="1" BorderBrush="Black" BorderThickness="1" Name="textBoxEmail" VerticalAlignment="Top"/>
+            <TextBlock  Name="EmailWarning" Foreground="Red" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="7" Grid.RowSpan="1"   VerticalAlignment="Center"   />
+            <PasswordBox  Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="5" Grid.RowSpan="1" BorderBrush="Black" BorderThickness="1" Name="passwordBox1" VerticalAlignment="Top" />
+            <TextBlock  Name="PswWarning" Foreground="Red" Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="7" Grid.RowSpan="1"  VerticalAlignment="Center"  />
+            <!--For password-->
+            <PasswordBox  Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="5" Grid.RowSpan="1" BorderBrush="Black" BorderThickness="1" Name="passwordBoxConfirm" VerticalAlignment="Top"  />
+            <TextBlock  Name="ConfirmpassWarning" Foreground="Red" Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="7" Grid.RowSpan="1" VerticalAlignment="Center"  />
+            <Button Content="Sign up" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="1" Margin="2 0 0 0"  Name="Signup" Click="Signup_Click"/>
+            <Button Content="Reset" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="1" Margin="0 0 2 0" Name="ResetForm" Click="ResetForm_Click"/>
+            <Button Content="Cancel" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="1" Margin="2 0 2 0"  Name="Cancel" Click="login_Click"/>
+
+            <!--Button as a Link button using style-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="7" Margin="0 0 0 0" Grid.RowSpan="2" Grid.Row="9">
+                <Label Content="Already got an account?" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="10"/>
+                <Button Content="Login" Cursor="Hand"  VerticalAlignment="Center" Click="login_Click" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <TextBlock TextDecorations="Underline">  
+                    <ContentPresenter />
+                            </TextBlock>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="Navy" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Foreground" Value="Red" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <!--end Button as a Link button using style-->
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

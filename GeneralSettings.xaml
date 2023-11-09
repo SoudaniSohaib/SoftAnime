@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="SoftAnime.GeneralSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SoftAnime"
+             mc:Ignorable="d" 
+             d:DesignHeight="490" d:DesignWidth="346">
+    <Grid Background="#FFFFF7DF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="4" Grid.ColumnSpan="4" Padding="10" Margin="10" CornerRadius="10" BorderThickness="1" BorderBrush="Black" >
+                    </Border>
+
+        <TextBlock HorizontalAlignment="Center" Grid.ColumnSpan="2" Text="General Settings" Padding="5,0,5,0" FontSize="15" Background="#FFFFF7DF" VerticalAlignment="Top" Height="Auto"/>
+        <StackPanel   Grid.ColumnSpan="4" Orientation="Vertical" Margin="10,10,0,0" Grid.RowSpan="2" >
+            <TextBlock Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="20" Margin="22,25,0,0" TextWrapping="Wrap" Text="Theme Color: " VerticalAlignment="Top" Width="Auto" FontSize="15"/>
+        <TextBox Name="ThemeColorHex" Text="#FFFFFF" GotFocus="ThemeColorHex_GotFocus" TextChanged="ThemeColorHex_TextChanged" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="25" Margin="25,10,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" FontSize="15"/>
+            <Border Name="ColorPickerView" BorderBrush="Black" BorderThickness="1" Height="20" Width="200" Margin="10,10,0,0" HorizontalAlignment="Left" Background="White"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

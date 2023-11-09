@@ -1,0 +1,185 @@
+﻿<Window x:Class="SoftAnime.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftAnime" xmlns:local1="clr-namespace:StarRatingsControl"
+        mc:Ignorable="d"
+        Title="SoftAnime" Height="700" Width="1000" 
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        
+        >
+    <Grid Background="#008060">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Menu HorizontalAlignment="Stretch" Grid.Row="0" Grid.ColumnSpan="10">
+            <MenuItem Header="Anime" FontSize="15" >
+                <MenuItem Header="Open" Click="MenuItem_Click"/>
+                <MenuItem Header="Save" />
+                <MenuItem Header="Exit" />
+            </MenuItem>
+            <MenuItem Header="User" FontSize="15" Name="UserTaskBarMenu" >
+                <MenuItem Header="Settings" Click="UserTaskBarLogin_Click"/>
+                <MenuItem Header="Login" Name="UserTaskBarLogin" Click="UserTaskBarLogin_Click"/>
+            </MenuItem>
+            <!-- Edit and Settings menu items -->
+        </Menu>
+
+        <Border Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="5" BorderThickness="1" BorderBrush="Black" Background="White" CornerRadius="10"/>
+        <ListBox Name="AnimesListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="5" Margin="5"  HorizontalContentAlignment="Stretch" SelectionChanged="SelectedAnime_FromList" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1">
+                        <DockPanel>
+                            <TextBlock Name="AnimeListRating" Width="20" Text="{Binding Rating, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="15"  HorizontalAlignment="Left" Grid.Column="0" Margin="10 0 0 0 " />
+                            <local1:RatingsControl x:Name="AnimeListStars" Value="{Binding Rating, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" NumberOfStars="1" BackgroundColor="White" StarForegroundColor="Gold" StarOutlineColor="Black"  HorizontalAlignment="Left" Grid.Column="1"/>
+                            <TextBlock Name="AnimeListName" Text="{Binding ATitle,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  FontSize="15" HorizontalAlignment="left" Grid.Column="2" Margin="5 0 5 0"/>
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Style>
+                <Style TargetType="ListBox">
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+            </ListBox.Style>
+        </ListBox>
+
+        <Border Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4" Background="LightGray" CornerRadius="10">
+            <Image Name="AnimePicture" Stretch="Fill" Margin="5" />
+        </Border>
+        <TextBlock Name="Animetitle" FontWeight="Bold" Text="Please, Select an anime from the list or add a new one"  HorizontalAlignment="Left" FontSize="20" TextWrapping="WrapWithOverflow" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3" Margin="5" Grid.RowSpan="1"   />
+        <StackPanel Grid.Column="4" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3" Orientation="Vertical" >
+            <DockPanel >
+                <Label Content="Seasons:" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+                <Label Name="seasonshow" Content="0" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+            </DockPanel>
+            <DockPanel >
+                <Label Content="Episodes:" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+                <Label Name="episodeshow" Content="0" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+            </DockPanel>
+            <DockPanel >
+                <Label Content="Movies :" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+                <Label Name="movieshow" Content="0" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+
+            </DockPanel>
+            <DockPanel >
+                <Label Content="OVA :" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+                <Label Name="ovashow" Content="0" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" />
+                <Label Content="Tags :" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            </DockPanel>
+            <DockPanel LastChildFill="True" >
+                <local1:RatingsControl Value="10"
+                  x:Name="Ratingshow"
+                  NumberOfStars="10"
+                  BackgroundColor="#008060"
+                  StarForegroundColor="Gold"
+                  StarOutlineColor="Black"                     
+                  Margin="2"
+                  HorizontalAlignment="Center" />
+            </DockPanel>
+        </StackPanel>
+        <TextBlock Name="AnimeTags" Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="3" Margin="2" FontSize="15" TextWrapping="Wrap" />
+        <Border Grid.Column="4" Grid.Row="6" Grid.RowSpan="3" Grid.ColumnSpan="6" BorderBrush="Black" CornerRadius="10"  BorderThickness="1" Background="White" >
+        <ListBox Name="TypeshowList" Grid.Column="4" Grid.Row="6" Grid.RowSpan="3" Grid.ColumnSpan="6" Margin="5" d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label  Name="index" Width="30" Content="{Binding Path=Index,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="15"  Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Name="genre" VerticalAlignment="Center" Text="{Binding Path=Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Visibility="Visible" Foreground="Black" HorizontalAlignment="Left"/>
+                        <Label Content="{Binding Path=epnum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" FontSize="15"/>
+                        <Label Name="EpisodesNumber" Content="{Binding Path=Episodes,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="15"  Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Label Name="Watchedstatus" Content="{Binding Path=status,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="15"  Foreground="{Binding Path=brush,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"   />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Style>
+                <Style TargetType="ListBox">
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="BorderThickness" Value="0" />
+                </Style>
+            </ListBox.Style>
+        </ListBox>
+        </Border>
+
+        <TextBox Name="NameSearch" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" TextChanged="NameSearch_TextChanged" VerticalAlignment="Center"  Margin="10 0" />
+        <StackPanel Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" VerticalAlignment="Center" Orientation="Vertical">
+            <Button Name="AddAnime" Click="AddAnime_Click" Content="Add a new Anime"  FontSize="18" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Name="AdvSearch" Content="Advanced Search" FontSize="18"  Margin="0 5 0 0" VerticalAlignment="Center" Click="AdvSearch_Click" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
+            <Button Name="Search" Content="Search" FontSize="18"  Margin="5" VerticalAlignment="Center" Click="Search_Click" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Name="Edit" Content="Edit" FontSize="18"   VerticalAlignment="Center" Click="Edit_Click"  >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Name="Delete" Content="Delete" FontSize="18"  Margin="5" VerticalAlignment="Center" Click="Delete_Click" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <DockPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" >
+            <Label VerticalAlignment="Center" FontSize="18" Content="User name :"  HorizontalAlignment="Left"  />
+            <Label Name="DatabaseName" VerticalAlignment="Center" Width="150" FontSize="18" HorizontalAlignment="Left"  />
+            <Label Name="DatabaseStatus" Content="Status:" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left"  />
+            <Button Name="DatabaseConnectList" Content="Connect to Database" FontSize="18" VerticalAlignment="Center" Margin="5" Click="DatabaseConnectList_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </DockPanel>
+    </Grid>
+    
+</Window>
+
