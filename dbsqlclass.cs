@@ -27,7 +27,6 @@ namespace SoftAnime
 
         public void Alltable()
         {
-            /// works good 100% comepleted cuz its ctrl c + v
 
             cnn = new MySqlConnection(Decrypt(DatabaseSetting.SeparateString(AdminUserConnectionString)[0], DatabaseSetting.SeparateString(AdminUserConnectionString)[1]));
             string sql = "Select * from animestable";
