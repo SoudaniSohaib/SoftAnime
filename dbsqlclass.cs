@@ -261,7 +261,7 @@ namespace SoftAnime
         {
             /// works good 100% comepleted
             MainWindow.AnimesCollection.Clear();
-            string request = "Select * From "+ MainWindow.Currentuser.Username+ " where Name Like '%@Name%' ";
+            string request = "Select * From "+ MainWindow.Currentuser.Username + " where Name Like '%@Name%' ";
             cnn = new MySqlConnection(Decrypt(DatabaseSetting.SeparateString(AdminUserConnectionString)[0], DatabaseSetting.SeparateString(AdminUserConnectionString)[1])); ;
             command = new MySqlCommand(request, cnn);
             command.Parameters.AddWithValue("@Name", animetitle);

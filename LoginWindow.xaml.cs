@@ -45,7 +45,10 @@ namespace SoftAnime
             {
                 if(!File.Exists(dir + @"\usersdata.txt"))
                 {
-                    File.Create(dir + @"\usersdata.txt");
+                    using(File.Create(dir + @"\usersdata.txt"))
+                    {
+
+                    }
                     OnlineLogin(email, pass);
                     return;
 
@@ -54,7 +57,10 @@ namespace SoftAnime
                     if(!Directory.Exists(dir))
                     {
                         Directory.CreateDirectory(dir);
-                        File.Create(dir + @"\usersdata.txt");
+                    using(File.Create(dir + @"\usersdata.txt"))
+                    {
+
+                    }
                         OnlineLogin(email, pass);
                         return;
                     }

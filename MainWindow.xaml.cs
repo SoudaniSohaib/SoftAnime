@@ -456,6 +456,11 @@ namespace SoftAnime
             List<Char> two = new List<char>();
             for( int i = 0; i < one.Length; i++ )
             {
+                if(one[i] == ' ')
+                {
+                    two.Add(' ');
+                    continue;
+                }
                 if( Char.IsLetterOrDigit(one[i]) )
                 {
                     two.Add(one[i]);
